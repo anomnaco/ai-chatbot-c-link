@@ -1,4 +1,5 @@
 # Add documents to the vectorstore, which is on the database, through an embeddings model
+import sys
 from dotenv import load_dotenv
 from langchain.embeddings import OpenAIEmbeddings, VertexAIEmbeddings
 from llama_index import (
@@ -66,4 +67,7 @@ def add_documents(folder_path):
 
 
 if __name__ == "__main__":
-    add_documents("output")
+    if len(sys.argv) < 2 or sys.argv[1] != "video":
+        add_documents("output")
+    else:
+        add_documents("video_output")
