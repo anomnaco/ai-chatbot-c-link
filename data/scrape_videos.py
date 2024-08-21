@@ -1,9 +1,5 @@
 import yaml
 import os
-import sys
-#one_levels_up = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-#sys.path.append(one_levels_up)
-#from data.compile_documents import add_documents
 
 from youtube_transcript_api import YouTubeTranscriptApi
 
@@ -21,8 +17,7 @@ def create_folder_if_not_exists(folder_path):
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
         print(f"Folder '{folder_path}' created.")
-    else:
-        print(f"Folder '{folder_path}' already exists.")
+
 
 # Example usage:
 create_folder_if_not_exists("video_output")
