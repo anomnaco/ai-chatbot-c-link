@@ -24,11 +24,14 @@ create_folder_if_not_exists("video_output")
 
 # Access and list the YouTube IDs
 video_ids = yaml_content.get('youtube_ids', [])
+folder = "video_output/"
 for video_id in video_ids:
-    transcript = YouTubeTranscriptApi.get_transcript(video_id)
-    folder = "video_output/"
-    file_name = folder + "1-"+str(video_id)+ "-1.txt"
-    temp = " ".join([item["text"] for item in transcript])
-    with open(file_name, "w") as f:
-        f.write(temp)
-
+    try:
+        transcript = YouTubeTranscriptApi.get_transcript(video_id)
+        file_name = folder + "1-"+str(video_id)+ "-1.txt"
+        temp = " ".join([item["text"] for item in transcript])
+        with open(file_name, "w") as f:
+            f.write(temp)
+    except Exception as e:
+        with open("video_ids_error.txt", "a") as f:
+            f.write(video_id + "\n")
