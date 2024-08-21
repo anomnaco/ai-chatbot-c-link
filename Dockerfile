@@ -9,7 +9,7 @@ ENV DSCLOUD_APP_VERSION=${BRANCH_NAME}.${COMMIT_HASH}
 WORKDIR /app
 
 RUN apt-get -y update
-RUN apt-get -y install git yt-dlp ffmpeg
+RUN apt-get -y install git yt-dlp
 
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt --no-cache-dir
