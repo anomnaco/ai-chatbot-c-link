@@ -33,18 +33,24 @@ Documentation (provided as a list of web urls in the `config.yml`) can be ingest
     ```bash
     PYTHONPATH=. python data/compile_documents.py
     ```
-6. From the root of the repository, run the following command. This will scrape videos specified in the `video_ids.yml` file into text files within the `video_output` folder of your `ai-chatbot-starter` directory.
+
+6. From the root of the repository, run the following command. This will get video ids using playlist ids specified in the `playlist_ids.yaml`. These video ids will be appended to `video_ids.yaml` filepresent under `ai-chatbot-starter` directory.
 
     ```bash
-    PYTHONPATH=. python data/videos.py
+    PYTHONPATH=. python data/playlist.py
     ```
 
-7. From the root of the repository, run the following command. This will store the embeddings for the scraped videos to your AstraDB instance.
+7. From the root of the repository, run the following command. This will scrape videos specified in the `video_ids.yaml` file into text files within the `video_output` folder of your `ai-chatbot-starter` directory.
+
+    ```bash
+    PYTHONPATH=. python data/scrape_videos.py
+    ```
+
+8. From the root of the repository, run the following command. This will store the embeddings for the scraped videos to your AstraDB instance.
 
     ```bash
     PYTHONPATH=. python data/compile_documents.py "video"
     ```
-
 
 ### Running the ChatBot
 
