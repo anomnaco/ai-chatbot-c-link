@@ -6,7 +6,7 @@ This AI Chatbot Starter is designed to help developers find the information they
 
 It should answer customer questions about the products or services specified.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/datastax/ai-chatbot-starter)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Anant/ai-chatbot-starter)
 
 ## Getting Started
 
@@ -33,6 +33,18 @@ Documentation (provided as a list of web urls in the `config.yml`) can be ingest
     ```bash
     PYTHONPATH=. python data/compile_documents.py
     ```
+6. From the root of the repository, run the following command. This will scrape videos specified in the `video_ids.yml` file into text files within the `video_output` folder of your `ai-chatbot-starter` directory.
+
+    ```bash
+    PYTHONPATH=. python data/videos.py
+    ```
+
+7. From the root of the repository, run the following command. This will store the embeddings for the scraped videos to your AstraDB instance.
+
+    ```bash
+    PYTHONPATH=. python data/compile_documents.py "video"
+    ```
+
 
 ### Running the ChatBot
 
