@@ -20,5 +20,6 @@ myvenv
 # Data
 data/docs
 output/
+video_output/
 config.yml
 
