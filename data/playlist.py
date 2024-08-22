@@ -32,7 +32,7 @@ def add_video_ids(video_ids):
     with open(video_yaml_file, 'w') as file:
         yaml.dump(video_id_content, file, default_flow_style=False)
 
-def get_video_ids(api_key, playlist_id):
+def get_video_ids_google(api_key, playlist_id):
     youtube = googleapiclient.discovery.build("youtube", "v3", developerKey=api_key)
 
     video_ids = []
@@ -58,7 +58,7 @@ def get_video_ids(api_key, playlist_id):
     
     return video_ids
 
-def get_video_ids(playlist_url):
+def get_video_ids_ytdlp(playlist_url):
     ydl_opts = {
         'quiet': True,  # Suppress output
         'extract_flat': True,  # Don't download videos, just retrieve metadata
@@ -82,12 +82,12 @@ def process_playlist():
     
     if playlist_ids:
         for playlist_id in playlist_ids:
-            video_ids = get_video_ids(youtube_api_key, playlist_id)
+            video_ids = get_video_ids_google(youtube_api_key, playlist_id)
             add_video_ids(video_ids)
 
     if playlist_urls:
         for playlist_url in playlist_urls:
-            video_ids = get_video_ids(playlist_url)
+            video_ids = get_video_ids_ytdlp(playlist_url)
             add_video_ids(video_ids)
   
 if __name__ == "__main__":
