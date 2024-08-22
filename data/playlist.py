@@ -1,6 +1,7 @@
 import googleapiclient.discovery
-import os
 from dotenv import load_dotenv
+from yt_dlp import YoutubeDL
+import os
 import yaml
 
 dotenv_path = ".env"
@@ -57,14 +58,38 @@ def get_video_ids(api_key, playlist_id):
     
     return video_ids
 
+def get_video_ids(playlist_url):
+    ydl_opts = {
+        'quiet': True,  # Suppress output
+        'extract_flat': True,  # Don't download videos, just retrieve metadata
+        'dumpjson': True,  # Output JSON
+    }
+
+    # Process the playlist
+    with YoutubeDL(ydl_opts) as ydl:
+        playlist_info = ydl.extract_info(playlist_url, download=False)
+
+    # Extract video IDs
+    video_ids = [entry['id'] for entry in playlist_info['entries']]
+
+    return video_ids
+
 def process_playlist():
-    playlist_yaml_file = 'playlist_ids.yaml'
+    playlist_yaml_file = 'playlist.yaml'
     playlist_content = read_yaml(playlist_yaml_file)
     playlist_ids = playlist_content.get('playlist_ids', [])
-    for playlist_id in playlist_ids:
-        video_ids = get_video_ids(youtube_api_key, playlist_id)
-        add_video_ids(video_ids)
+    playlist_urls = playlist_content.get('playlist_urls', [])
+    
+    if playlist_ids:
+        for playlist_id in playlist_ids:
+            video_ids = get_video_ids(youtube_api_key, playlist_id)
+            add_video_ids(video_ids)
 
+    if playlist_urls:
+        for playlist_url in playlist_urls:
+            video_ids = get_video_ids(playlist_url)
+            add_video_ids(video_ids)
+  
 if __name__ == "__main__":
     process_playlist()
 
