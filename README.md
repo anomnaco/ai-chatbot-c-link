@@ -100,5 +100,5 @@ Alternatively, you can run the app normally using the following steps:
 4. To run the chainlit front-end:
 
     ```bash
-    python -m chainlit run chainlit-app.py -w
+    python -m chainlit run chainlit_app.py -w
     ```
