@@ -97,3 +97,8 @@ Alternatively, you can run the app normally using the following steps:
     ```bash
     python scripts/call_assistant.py "<your_query_here>"
     ```
+4. To run the chainlit front-end:
+
+    ```bash
+    python -m chainlit run chainlit-app.py -w
+    ```
