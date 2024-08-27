@@ -12,6 +12,7 @@ It should answer customer questions about the products or services specified.
 
 1. Clone the repository
 2. Make sure you have Python 3.11 installed
+3. Get required Astra credentials from Anant
 
 Now follow the steps below to get the chatbot up and running.
 
@@ -34,13 +35,21 @@ Documentation (provided as a list of web urls in the `config.yml`) can be ingest
     PYTHONPATH=. python data/compile_documents.py
     ```
 
-6. From the root of the repository, run the following command. This will get video ids using playlist ids specified in the `playlist_ids.yaml`. These video ids will be appended to `video_ids.yaml` filepresent under `ai-chatbot-starter` directory.
+6. From the root of the repository, run the following command. Process requires, Playlist.yaml as input and looks like below
+
+![Play list](images/playlist-yaml.png)
+
+This will get video ids using playlist ids or play list url's specified in the `playlist_ids.yaml`. These video ids will be appended to `video_ids.yaml` file present under `ai-chatbot-starter` directory.
 
     ```bash
     PYTHONPATH=. python data/playlist.py
     ```
 
-7. From the root of the repository, run the following command. This will scrape videos specified in the `video_ids.yaml` file into text files within the `video_output` folder of your `ai-chatbot-starter` directory.
+7. From the root of the repository, run the following command. Process require video_ids.yaml as input and looks like below.
+
+![Video ids yaml](images/video_ids-yaml.png)
+
+This will scrape videos specified in the `video_ids.yaml` file into text files within the `video_output` folder of your `ai-chatbot-starter` directory.
 
     ```bash
     PYTHONPATH=. python data/scrape_videos.py
@@ -76,7 +85,7 @@ If you have Docker installed, you can run the app using the following command:
     python scripts/call_assistant.py "<your_query_here>"
     ```
 
-#### Local Run
+#### Using Local
 
 Alternatively, you can run the app normally using the following steps:
 
@@ -97,8 +106,32 @@ Alternatively, you can run the app normally using the following steps:
     ```bash
     python scripts/call_assistant.py "<your_query_here>"
     ```
+
 4. To run the chainlit front-end:
+   ```
+   python -m chainlit run chainlit_app.py -w
+   ```
+
+#### Using Langflow
+1. Login to Astra portal:
 
     ```bash
-    python -m chainlit run chainlit_app.py -w
+    use https://accounts.datastax.com/session-service/v1/login url for login
     ```
+    Below would be the landing page after login to astra
+    ![Astra landing page](images/astra-landing-page.png)
+
+2. Select Langflow from dropdown:
+![Astra Component Dropdown](images/Astra-Components.png)
+
+3. Select Langflow that need to be started and click on "Playground". In this case "Vector Store RAG-AI Chat Bot"
+![Langflow](images/Astra-Langflow.png)
+
+4. Chatbot UI would be pop-up.
+![Chatbot](images/chatbot.png)
+
+5. Key-in your query in text box below and press "Arrow" button
+![Question](images/query.png)
+
+6. Bot responds with asnwer like below
+![Response](images/Answer.png)
