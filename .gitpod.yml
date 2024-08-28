@@ -1,10 +1,8 @@
 image:
   file: Dockerfile
 tasks:
-  - name: Setup pyenv and Python Versions
+  - name: Verify pyenv
     command: |
-      # Source pyenv environment
       source ~/.bashrc
       python --version
       pyenv versions
-      chmod 777 /root/.pyenv/bin/pyenv
