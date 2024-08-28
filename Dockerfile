@@ -16,12 +16,9 @@ RUN curl https://pyenv.run | bash
 
 # Update shell configuration
 echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
-echo 'eval "$(pyenv init -)"' >> ~/.bashrc
-echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
-
-# Source the updated shell configuration
-source ~/.bashrc
+RUN eval "$(pyenv init --path)" && \
+    eval "$(pyenv init -)" && \
+    eval "$(pyenv virtualenv-init -)"
 
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt --no-cache-dir
