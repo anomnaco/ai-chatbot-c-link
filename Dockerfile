@@ -14,6 +14,14 @@ RUN pip3 install yt-dlp
 RUN apt-get -y install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev
 RUN curl https://pyenv.run | bash
 
+# Update shell configuration
+echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+
+# Source the updated shell configuration
+source ~/.bashrc
 
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt --no-cache-dir
