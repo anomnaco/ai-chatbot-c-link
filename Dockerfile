@@ -19,7 +19,7 @@ ENV PATH="/root/.pyenv/bin:/root/.pyenv/shims:${PATH}"
 RUN /bin/bash -c "source ~/.bashrc && \
     eval \"\$(pyenv init --path)\" && \
     eval \"\$(pyenv init -)\" && \
-    eval \"\$(pyenv virtualenv-init -)\"
+    eval \"\$(pyenv virtualenv-init -)\""
 
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt --no-cache-dir
