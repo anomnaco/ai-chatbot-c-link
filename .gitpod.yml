@@ -1,2 +1,7 @@
 image:
   file: Dockerfile
+tasks:
+  - name: Setup pyenv and Python Versions
+    command: |
+      # Source pyenv environment
+      source ~/.bashrc
