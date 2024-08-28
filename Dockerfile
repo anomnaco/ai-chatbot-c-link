@@ -15,10 +15,11 @@ RUN apt-get -y install -y build-essential libssl-dev zlib1g-dev libbz2-dev libre
 RUN curl https://pyenv.run | bash
 
 # Update shell configuration
-ENV PATH="/root/.pyenv/bin:${PATH}"
-RUN eval "$(pyenv init --path)" && \
-    eval "$(pyenv init -)" && \
-    eval "$(pyenv virtualenv-init -)"
+ENV PATH="/root/.pyenv/bin:/root/.pyenv/shims:${PATH}"
+RUN /bin/bash -c "source ~/.bashrc && \
+    eval \"\$(pyenv init --path)\" && \
+    eval \"\$(pyenv init -)\" && \
+    eval \"\$(pyenv virtualenv-init -)\"
 
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt --no-cache-dir
