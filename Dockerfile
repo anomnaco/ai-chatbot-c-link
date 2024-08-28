@@ -12,24 +12,6 @@ RUN apt-get -y update
 RUN apt-get -y install git jq
 RUN pip3 install yt-dlp
 
-RUN apt-get update && \
-    apt-get install -y \
-    sudo \
-    curl \
-    git \
-    build-essential \
-    zlib1g-dev \
-    libbz2-dev \
-    libreadline-dev \
-    libsqlite3-dev \
-    wget \
-    libncurses5-dev \
-    libncursesw5-dev \
-    xz-utils \
-    tk-dev \
-    libffi-dev \
-    liblzma-dev
-
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt --no-cache-dir
 
