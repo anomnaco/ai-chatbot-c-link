@@ -5,3 +5,6 @@ tasks:
     command: |
       # Source pyenv environment
       source ~/.bashrc
+      python --version
+      pyenv versions
+      chmod 777 /root/.pyenv/bin/pyenv
