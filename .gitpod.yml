@@ -3,10 +3,6 @@ image:
 tasks:
   - name: Install and Configure pyenv
     command: |
-      # Update package list and install dependencies
-      apt-get update
-      apt-get install -y curl git build-essential
-
       # Install pyenv
       curl https://pyenv.run | bash
 
