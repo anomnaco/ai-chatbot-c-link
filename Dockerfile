@@ -12,8 +12,9 @@ RUN apt-get -y update
 RUN apt-get -y install git jq
 RUN pip3 install yt-dlp
 
-RUN sudo apt-get update && \
-    sudo apt-get install -y \
+RUN apt-get update && \
+    apt-get install -y \
+    sudo \
     curl \
     git \
     build-essential \
