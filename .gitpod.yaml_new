@@ -1,0 +1,27 @@
+image:
+  file: Dockerfile
+tasks:
+  - name: Install and Configure pyenv
+    command: |
+      # Install pyenv
+      curl https://pyenv.run | bash
+
+      # Update .bashrc to include pyenv setup
+      echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.bashrc
+      echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
+      echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+      echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+
+      # Source .bashrc to apply changes
+      source ~/.bashrc
+
+      # Verify installation
+      pyenv --version
+      python --version
+
+  # Optionally, add another task to ensure the environment is correctly set up
+  - name: Verify Environment
+    command: |
+      source ~/.bashrc
+      pyenv --version
+      python --version
