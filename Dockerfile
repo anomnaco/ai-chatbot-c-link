@@ -21,6 +21,9 @@ RUN /bin/bash -c "source ~/.bashrc && \
     eval \"\$(pyenv init -)\" && \
     eval \"\$(pyenv virtualenv-init -)\""
 
+# Verify installation in the Dockerfile
+RUN /bin/bash -c "source ~/.bashrc && pyenv versions"
+
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt --no-cache-dir
 
