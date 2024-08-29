@@ -39,14 +39,14 @@ documents:
     - http://wholesiteexample.com
     - http://entiresitecontent.com
   BeautifulSoupWebReader:
-    - http://beautifulsoupcontent.com
-    - http://parsedhtmlpage.com
+    - https://en.wikipedia.org/wiki/Web_scraping
+    - https://en.wikipedia.org/wiki/Beautiful_Soup_(HTML_parser)
   RssReader:
     - http://rssfeedexample.com/rss
     - http://blogrssfeed.com/rss
   SimpleWebPageReader:
-    - http://simplecontentpage.com
-    - http://basicwebpageexample.com
+    - https://developer.mozilla.org/en-US/docs/Web/HTML
+    - https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics
   TrafilaturaWebReader:
     - http://trafilaturaexample.com
     - http://contentextractionpage.com
