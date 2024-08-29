@@ -12,3 +12,4 @@ ragstack-ai~=0.2.0
 tiktoken~=0.5.2
 uvicorn~=0.25.0
 chainlit~=1.1.402
+youtube-transcript-api
