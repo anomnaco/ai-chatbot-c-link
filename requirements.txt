@@ -1,4 +1,17 @@
+asgiref~=3.7.2
+astrapy>=0.6.2
 beautifulsoup4~=4.12.2
+bugsnag~=4.6.0
+fastapi~=0.110.1
+google-api-python-client~=2.109.0
+google-cloud-aiplatform
+httpx~=0.25.2
+openai
+python-dotenv~=1.0.0
+ragstack-ai~=1.1.0
+tiktoken
+uvicorn~=0.25.0
+chainlit~=1.1.402
 youtube-transcript-api
 html2text
 urllib3
@@ -14,5 +27,4 @@ trafilatura~=1.4
 unstructured
 selenium
 chromedriver-autoinstaller
-llama-index-readers-web
 lxml_html_clean
