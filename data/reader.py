@@ -1,6 +1,7 @@
 import yaml
 from dotenv import load_dotenv
 import os
+import sys
 
 from llama_index.readers.web import BeautifulSoupWebReader
 from llama_index.readers.web import SimpleWebPageReader
@@ -38,6 +39,11 @@ def detect_url_category(url, data):
             return category
     return None
 
+reader_name = None
+try:
+    reader_name = sys.argv[1]
+except:
+    pass
 # Traverse through all URLs and print the category for each
 for category, urls in data['documents'].items():
     document = None
@@ -45,7 +51,7 @@ for category, urls in data['documents'].items():
         detected_category = detect_url_category(url, data)
         if detected_category:
             print(f"The URL '{url}' belongs to the category '{detected_category}'.")
-            if detected_category in ("ReadabilityWebPageReader"):
+            if not reader_name or detected_category in (reader_name):
                 if detected_category == "BeautifulSoupWebReader":
                     loader = BeautifulSoupWebReader()
                 elif detected_category == "SimpleWebPageReader":
