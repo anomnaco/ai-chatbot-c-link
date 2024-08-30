@@ -1,0 +1,51 @@
+documents:
+  AsyncWebPageReader:
+    - https://en.wikipedia.org/wiki/Web_scraping
+    - https://en.wikipedia.org/wiki/Asynchronous_I/O
+  BrowserbaseWebReader:
+    - https://www.google.com/search?q=python+programming
+    - https://www.google.com/search?q=async+web+scraping
+  FireCrawlWebReader:
+    - https://en.wikipedia.org/wiki/Web_scraping
+    - https://en.wikipedia.org/wiki/Artificial_intelligence
+  KnowledgeBaseWebReader:
+    - https://en.wikipedia.org/wiki/Main_Page
+    - https://en.wikipedia.org/wiki/Python_(programming_language)
+  MainContentExtractorReader:
+    - https://www.nytimes.com/2024/07/10/technology/google-ai-privacy.html
+    -  https://www.bbc.com/news/technology-58274806
+  NewsArticleReader:
+    - https://www.iana.org/help/example-domains
+    - https://en.wikipedia.org/wiki/Web_scraping
+  ReadabilityWebPageReader:
+    - https://www.npr.org/sections/technology/
+    - https://www.theverge.com/tech
+  RssReader:
+    - http://rss.cnn.com/rss/cnn_topstories.rss
+    - https://feeds.bbci.co.uk/news/technology/rss.xml
+  RssNewsReader:
+    - http://rss.cnn.com/rss/cnn_topstories.rss
+    - https://feeds.bbci.co.uk/news/technology/rss.xml
+  ScrapflyReader:
+    - http://scrapflycontent.com
+    - http://dataextractionexample.com
+  SitemapReader:
+    - https://www.techcrunch.com/sitemap.xml
+    - https://www.example.com/sitemap.xml
+  SpiderReader:
+    - https://techcrunch.com/
+    - https://edition.cnn.com/
+  TrafilaturaWebReader:
+    - https://www.entrepreneur.com/business-news/office-worker-left-alone-on-by-colleagues-team-hiking-outing/479100
+  UnstructuredURLLoader:
+    - http://unstructuredcontent.com
+    - https://hbr.org/2024/08/what-high-achievers-need-from-their-mentors?ab=HP-hero-for-you-text-1
+  WholeSiteReader:
+    - http://wholesiteexample.com
+    - http://entiresitecontent.com
+  BeautifulSoupWebReader:
+    - https://en.wikipedia.org/wiki/Web_scraping
+    - https://en.wikipedia.org/wiki/Beautiful_Soup_(HTML_parser)
+  SimpleWebPageReader:
+    - https://developer.mozilla.org/en-US/docs/Web/HTML
+    - https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics

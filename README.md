@@ -41,9 +41,9 @@ Documentation (provided as a list of web urls in the `config.yml`) can be ingest
 
 This will get video ids using playlist ids or play list url's specified in the `playlist_ids.yaml`. These video ids will be appended to `video_ids.yaml` file present under `ai-chatbot-starter` directory.
 
-    ```bash
+```bash
     PYTHONPATH=. python data/playlist.py
-    ```
+```
 
 7. From the root of the repository, run the following command. Process require video_ids.yaml as input and looks like below.
 
@@ -51,15 +51,15 @@ This will get video ids using playlist ids or play list url's specified in the `
 
 This will scrape videos specified in the `video_ids.yaml` file into text files within the `video_output` folder of your `ai-chatbot-starter` directory.
 
-    ```bash
+```bash
     PYTHONPATH=. python data/scrape_videos.py
-    ```
+```
 
 8. From the root of the repository, run the following command. This will store the embeddings for the scraped videos to your AstraDB instance.
 
-    ```bash
+```bash
     PYTHONPATH=. python data/compile_documents.py "video"
-    ```
+```
 
 ### Running the ChatBot
 
