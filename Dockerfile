@@ -17,9 +17,6 @@ RUN pip3 install yt-dlp
 
 
 COPY requirements.txt requirements.txt
-RUN pip3 uninstall -y -r requirements.txt
-
-COPY constraints.txt constraints.txt
 RUN pip3 install -r requirements.txt -c constraints.txt --no-cache-dir
 
 RUN apt-get install -y libnss3 libnspr4 libatk1.0-0 libatk-bridge2.0-0 \
