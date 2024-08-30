@@ -19,8 +19,8 @@ lxml_html_clean
 tiktoken
 chainlit
 unstructured
-llama-index
-llama-index-readers-web==0.2.1
+#llama-index
+#llama-index-readers-web==0.2.1
 asgiref~=3.7.2
 beautifulsoup4~=4.12.2
 google-cloud-aiplatform
