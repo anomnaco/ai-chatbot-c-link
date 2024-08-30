@@ -26,3 +26,4 @@ beautifulsoup4~=4.12.2
 google-cloud-aiplatform
 ###
 astrapy
+bugsnag
