@@ -17,7 +17,7 @@ RUN pip3 install yt-dlp
 
 
 COPY requirements.txt requirements.txt
-#RUN pip3 uninstall -y -r requirements.txt
+RUN pip3 uninstall -y -r requirements.txt
 
 COPY constraints.txt constraints.txt
 RUN pip3 install -r requirements.txt -c constraints.txt --no-cache-dir
