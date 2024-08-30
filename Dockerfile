@@ -12,7 +12,6 @@ WORKDIR /app
 RUN apt-get update && \
     apt-get install -y sudo python3-pip
 
-
 RUN apt-get -y install git jq
 RUN pip3 install yt-dlp
 
