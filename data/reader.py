@@ -2,7 +2,6 @@ import yaml
 from dotenv import load_dotenv
 import os
 import sys
-import asyncio
 
 from llama_index.readers.web import BeautifulSoupWebReader
 from llama_index.readers.web import SimpleWebPageReader
