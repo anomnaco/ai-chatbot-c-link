@@ -30,3 +30,4 @@ trafilatura
 unstructured
 selenium
 chromedriver-autoinstaller
+lxml_html_clean
