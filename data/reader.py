@@ -2,6 +2,7 @@ import yaml
 from dotenv import load_dotenv
 import os
 import sys
+import asyncio
 
 from llama_index.readers.web import BeautifulSoupWebReader
 from llama_index.readers.web import SimpleWebPageReader
@@ -94,9 +95,9 @@ for category, urls in data['documents'].items():
                     elif detected_category == "NewsArticleReader":
                         loader = NewsArticleReader(use_nlp=False)
                         reader=1
-                    elif detected_category == "ReadabilityWebPageReader":
-                        loader = ReadabilityWebPageReader()
-                        document = loader.load_data(url=url)
+                    #elif detected_category == "ReadabilityWebPageReader":
+                    #    loader = ReadabilityWebPageReader()
+                    #    document = loader.load_data(url=url)
                     #elif detected_category == "RssReader":
                     #    loader = RssReader()
                     #    rss_feed_url = url
