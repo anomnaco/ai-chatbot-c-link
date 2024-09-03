@@ -1,0 +1,43 @@
+CREATE TABLE default_keyspace.scrape_url_list (
+    url TEXT,
+    category TEXT,
+	PRIMARY KEY (url, category)
+);
+
+
+insert into default_keyspace.scrape_url_list(url, category) values('https://en.wikipedia.org/wiki/Web_scraping', 'BeautifulSoupWebReader') ;
+insert into default_keyspace.scrape_url_list(url, category) values('https://en.wikipedia.org/wiki/Beautiful_Soup_(HTML_parser)', 'BeautifulSoupWebReader');
+insert into default_keyspace.scrape_url_list(url, category) values('https://developer.mozilla.org/en-US/docs/Web/HTML', 'SimpleWebPageReader');
+insert into default_keyspace.scrape_url_list(url, category) values('https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics', 'SimpleWebPageReader');
+insert into default_keyspace.scrape_url_list(url, category) values('https://en.wikipedia.org/wiki/Web_scraping', 'AsyncWebPageReader');
+insert into default_keyspace.scrape_url_list(url, category) values('https://en.wikipedia.org/wiki/Asynchronous_I/O', 'AsyncWebPageReader');
+insert into default_keyspace.scrape_url_list(url, category) values('https://www.google.com/search?q=python+programming', 'BrowserbaseWebReader');
+insert into default_keyspace.scrape_url_list(url, category) values('https://www.google.com/search?q=async+web+scraping', 'BrowserbaseWebReader');
+insert into default_keyspace.scrape_url_list(url, category) values('https://www.nytimes.com/2024/07/10/technology/google-ai-privacy.html', 'MainContentExtractorReader');
+insert into default_keyspace.scrape_url_list(url, category) values('https://www.bbc.com/news/technology-58274806', 'MainContentExtractorReader');
+insert into default_keyspace.scrape_url_list(url, category) values('https://www.iana.org/help/example-domains', 'NewsArticleReader');
+insert into default_keyspace.scrape_url_list(url, category) values('https://en.wikipedia.org/wiki/Web_scraping', 'NewsArticleReader');
+insert into default_keyspace.scrape_url_list(url, category) values('https://feeds.bbci.co.uk/news/technology/rss.xml', 'RssReader');
+insert into default_keyspace.scrape_url_list(url, category) values('https://www.entrepreneur.com/business-news/office-worker-left-alone-on-by-colleagues-team-hiking-outing/479100', 'TrafilaturaWebReader');
+insert into default_keyspace.scrape_url_list(url, category) values('http://unstructuredcontent.com', 'UnstructuredURLLoader');
+insert into default_keyspace.scrape_url_list(url, category) values('https://hbr.org/2024/08/what-high-achievers-need-from-their-mentors?ab=HP-hero-for-you-text-1', 'UnstructuredURLLoader');
+
+#insert into default_keyspace.scrape_url_list(url, category) values('http://rss.cnn.com/rss/cnn_topstories.rss', 'RssNewsReader');
+#insert into default_keyspace.scrape_url_list(url, category) values('https://feeds.bbci.co.uk/news/technology/rss.xml', 'RssNewsReader');
+#insert into default_keyspace.scrape_url_list(url, category) values('http://rss.cnn.com/rss/cnn_topstories.rss', 'RssReader');
+#insert into default_keyspace.scrape_url_list(url, category) values('https://www.npr.org/sections/technology/', 'ReadabilityWebPageReader');
+#insert into default_keyspace.scrape_url_list(url, category) values('https://www.theverge.com/tech', 'ReadabilityWebPageReader');
+
+#insert into default_keyspace.scrape_url_list(url, category) values('https://en.wikipedia.org/wiki/Web_scraping', 'FireCrawlWebReader');
+#insert into default_keyspace.scrape_url_list(url, category) values('https://en.wikipedia.org/wiki/Artificial_intelligence', 'FireCrawlWebReader');
+#insert into default_keyspace.scrape_url_list(url, category) values('https://en.wikipedia.org/wiki/Main_Page', 'KnowledgeBaseWebReader');
+#insert into default_keyspace.scrape_url_list(url, category) values('https://en.wikipedia.org/wiki/Python_(programming_language)', 'KnowledgeBaseWebReader');
+#insert into default_keyspace.scrape_url_list(url, category) values('http://scrapflycontent.com', 'ScrapflyReader');
+#insert into default_keyspace.scrape_url_list(url, category) values('http://dataextractionexample.com', 'ScrapflyReader');
+#insert into default_keyspace.scrape_url_list(url, category) values('https://www.techcrunch.com/sitemap.xml', 'SitemapReader');
+#insert into default_keyspace.scrape_url_list(url, category) values('https://www.example.com/sitemap.xml', 'SitemapReader');
+#insert into default_keyspace.scrape_url_list(url, category) values('https://techcrunch.com/', 'SpiderReader');
+#insert into default_keyspace.scrape_url_list(url, category) values('https://edition.cnn.com/', 'SpiderReader');
+#insert into default_keyspace.scrape_url_list(url, category) values('https://www.forbes.com', 'WholeSiteReader');
+#insert into default_keyspace.scrape_url_list(url, category) values('https://www.businessinsider.com', 'WholeSiteReader');
+
