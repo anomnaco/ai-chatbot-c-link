@@ -12,7 +12,7 @@ WORKDIR /app
 RUN apt-get update && \
     apt-get install -y sudo python3-pip
 
-RUN apt-get -y install git jq wget unzip
+RUN apt-get -y install git jq wget unzip gnupg
 RUN pip3 install yt-dlp
 
 
@@ -25,46 +25,22 @@ RUN apt-get install -y libnss3 libnspr4 libatk1.0-0 libatk-bridge2.0-0 \
 
 RUN playwright install chromium
 
+# Add Google Chrome repository and key
+RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list' \
+    && apt-get update
+
 # Install the latest version of Google Chrome
 RUN apt-get install -y google-chrome-stable \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Download and install specific version of Google Chrome if available
-RUN wget https://path.to/archive/google-chrome-stable_114.0.5735.90_amd64.deb \
-    && dpkg -i google-chrome-stable_114.0.5735.90_amd64.deb \
-    && apt-get install -f -y \
-    && rm google-chrome-stable_114.0.5735.90_amd64.deb \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install ChromeDriver for compatibility with Chrome version
+# Download and install ChromeDriver
 RUN wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip \
     && unzip chromedriver_linux64.zip \
     && mv chromedriver /usr/local/bin/chromedriver \
     && chmod +x /usr/local/bin/chromedriver \
     && rm chromedriver_linux64.zip
-
-# Install ChromeDriver for compatibility with Chrome version
-RUN wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip \
-    && unzip chromedriver_linux64.zip \
-    && mv chromedriver /usr/local/bin/chromedriver \
-    && chmod +x /usr/local/bin/chromedriver \
-    && rm chromedriver_linux64.zip
-
-# Set Chrome as default browser (optional)
-ENV CHROME_BIN=/usr/bin/google-chrome
-
-#RUN wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip \
-#    && unzip chromedriver_linux64.zip \
-#    && mv chromedriver /usr/local/bin/chromedriver \
-#    && chmod +x /usr/local/bin/chromedriver \
-#    && rm chromedriver_linux64.zip
-
-#RUN wget -O /tmp/chromedriver.zip "https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip" \
-#    && unzip /tmp/chromedriver.zip -d /usr/local/bin/ \
-#    && rm /tmp/chromedriver.zip \
-#    && chmod +x /usr/local/bin/chromedriver
 
 COPY . .
 
