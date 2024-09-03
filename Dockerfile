@@ -25,6 +25,12 @@ RUN apt-get install -y libnss3 libnspr4 libatk1.0-0 libatk-bridge2.0-0 \
 
 RUN playwright install chromium
 
+RUN apt-get update \
+    && apt-get install -y \
+    google-chrome-stable=114.0.5735.90-1 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
 # Install Google Chrome
 #RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
 #    && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' \
@@ -32,12 +38,14 @@ RUN playwright install chromium
 #    && apt-get install -y google-chrome-stable \
 #    && rm -rf /var/lib/apt/lists/*
 
-RUN wget https://chrome.google.com/download/114.0.5735.90/google-chrome-stable_current_amd64.deb \
-    && dpkg -i google-chrome-stable_current_amd64.deb \
-    && apt-get install -f -y \
-    && apt-get clean \
-    && rm google-chrome-stable_current_amd64.deb
+RUN wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip \
+    && unzip chromedriver_linux64.zip \
+    && mv chromedriver /usr/local/bin/chromedriver \
+    && chmod +x /usr/local/bin/chromedriver \
+    && rm chromedriver_linux64.zip
 
+# Set Chrome as default browser (optional)
+ENV CHROME_BIN=/usr/bin/google-chrome
 #RUN CHROME_VERSION=$(google-chrome --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+') \
 #    && echo "Detected Chrome version: $CHROME_VERSION" \
 #    && CHROMEDRIVER_VERSION=$(wget -qO- "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION" || echo "114.0.5735.90") \
