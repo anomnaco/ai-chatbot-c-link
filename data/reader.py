@@ -6,25 +6,7 @@ import sys
 from cassandra.cluster import Cluster
 from cassandra.auth import PlainTextAuthProvider
 
-from llama_index.readers.web import (
-    AsyncWebPageReader,
-    BeautifulSoupWebReader,
-    BrowserbaseWebReader,
-    FireCrawlWebReader,
-    KnowledgeBaseWebReader,
-    MainContentExtractorReader,
-    NewsArticleReader,
-    ReadabilityWebPageReader,
-    RssNewsReader,
-    RssReader,
-    ScrapflyReader,
-    SimpleWebPageReader,
-    SitemapReader,
-    SpiderWebReader,
-    TrafilaturaWebReader,
-    UnstructuredURLLoader,
-    WholeSiteReader
-)
+from llama_index.readers.web import AsyncWebPageReader, BeautifulSoupWebReader, BrowserbaseWebReader, FireCrawlWebReader, KnowledgeBaseWebReader, MainContentExtractorReader, NewsArticleReader, ReadabilityWebPageReader, RssNewsReader, RssReader, ScrapflyReader, SimpleWebPageReader, SitemapReader, SpiderWebReader, TrafilaturaWebReader, UnstructuredURLLoader, WholeSiteReader
 import nltk
 
 nltk.download('punkt')
@@ -169,7 +151,7 @@ class WholeSiteReaderHandler(BaseReader):
             import chromedriver_autoinstaller
         except ImportError:
             raise ImportError("Please install chromedriver_autoinstaller")
-        from llama_index.readers.web import WholeSiteReader
+from llama_index.readers.web import WholeSiteReader
         from selenium import webdriver
 
         options = webdriver.ChromeOptions()

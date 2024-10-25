@@ -6,7 +6,7 @@ from unittest.mock import MagicMock, patch
 from fastapi.testclient import TestClient
 import hashlib
 import hmac
-from llama_index.response.schema import StreamingResponse
+from llama_index.core.response.schema import StreamingResponse
 import pytest
 import requests
 

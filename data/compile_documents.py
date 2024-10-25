@@ -2,15 +2,10 @@
 import sys
 from dotenv import load_dotenv
 from langchain.embeddings import OpenAIEmbeddings, VertexAIEmbeddings
-from llama_index import (
-    SimpleDirectoryReader,
-    VectorStoreIndex,
-    ServiceContext,
-    StorageContext,
-)
-from llama_index.embeddings import LangchainEmbedding
-from llama_index.node_parser import SimpleNodeParser
-from llama_index.vector_stores import AstraDBVectorStore
+from llama_index.core import SimpleDirectoryReader, VectorStoreIndex, ServiceContext, StorageContext
+from llama_index.embeddings.langchain import LangchainEmbedding
+from llama_index.core.node_parser import SimpleNodeParser
+from llama_index.vector_stores.astra_db import AstraDBVectorStore
 
 from integrations.google import init_gcp, GECKO_EMB_DIM
 from integrations.openai import OPENAI_EMB_DIM

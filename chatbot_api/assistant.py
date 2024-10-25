@@ -1,20 +1,22 @@
 from abc import ABC, abstractmethod
 from typing import List, Optional, Tuple
-
+from langchain_community.embeddings import OpenAIEmbeddings, VertexAIEmbeddings
 from langchain.embeddings.base import Embeddings
-from langchain.embeddings import OpenAIEmbeddings, VertexAIEmbeddings
+#from langchain.embeddings import OpenAIEmbeddings, VertexAIEmbeddings
 from langchain.llms import VertexAI
-from llama_index import VectorStoreIndex, ServiceContext
-from llama_index.vector_stores import AstraDBVectorStore
-from llama_index.embeddings import LangchainEmbedding
-from llama_index.llms import OpenAI
-from llama_index.response.schema import StreamingResponse
+from llama_index.core import VectorStoreIndex
+from llama_index.core import ServiceContext
+#from llama_index.core import Settings
+from llama_index.vector_stores.astra_db import AstraDBVectorStore
+from llama_index.embeddings.langchain import LangchainEmbedding
+from llama_index.llms.openai import OpenAI
+from llama_index.core.base.response.schema import StreamingResponse
 
 from chatbot_api.prompt_util import get_template
 from integrations.google import GECKO_EMB_DIM, init_gcp
 from integrations.openai import OPENAI_EMB_DIM
 from pipeline.config import Config, LLMProvider
-from llama_index.chat_engine import SimpleChatEngine
+from llama_index.core.chat_engine import SimpleChatEngine
 
 
 class Assistant(ABC):
@@ -46,9 +48,15 @@ class Assistant(ABC):
         self.service_context = ServiceContext.from_defaults(
             llm=llm, embed_model=self.embedding_model
         )
+        
+        #self.settings = Settings(
+        #    llm=llm, embed_model=self.embedding_model
+        #)
 
         self.index = VectorStoreIndex.from_vector_store(
             vector_store=self.vectorstore, service_context=self.service_context
+            #vector_store=self.vectorstore, settings=self.settings
+
         )
 
         self.query_engine = self.index.as_query_engine(
@@ -56,6 +64,7 @@ class Assistant(ABC):
         )
 
         self.chat_engine = SimpleChatEngine.from_defaults(service_context=self.service_context)
+        #self.chat_engine = SimpleChatEngine.from_defaults(settings=self.settings)
 
     # Get a response from the vector search, aka the relevant data
     def find_relevant_docs(self, query: str) -> str:

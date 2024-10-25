@@ -1,5 +1,8 @@
 asgiref~=3.7.2
-astrapy==1.4.1
+astrapy==1.5.0
+#astrapy==0.7.7
+#llama-index-vector-stores-astra-db==0.1.5
+llama-index==0.10.57
 beautifulsoup4~=4.12.2
 bugsnag~=4.6.0
 fastapi~=0.110.1
@@ -9,12 +12,15 @@ httpx==0.27.2
 httpx[http2]==0.27.2
 openai
 python-dotenv~=1.0.0
-ragstack-ai
+ragstack-ai==1.1.0
 tiktoken
 uvicorn~=0.25.0
 chainlit~=1.1.402
 llama-index-readers-web
-
+langchain-community
+llama-index-embeddings-langchain
+llama-index-llms-openai
+botocore==1.34.70
 ###
 requests
 urllib3
