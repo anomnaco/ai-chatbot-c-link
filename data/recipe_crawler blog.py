@@ -87,17 +87,11 @@ class RecipeCrawler:
         #     recipe['instructions'] = [inst.strip() for inst in instructions]
 
         # Extract image URL
-        # image = soup.find('div', class_='field--name-field-image')
-        # if image:
-        #     img_tag = image.find('img')
-        #     if img_tag and 'src' in img_tag.attrs:
-        #         clean_url = img_tag['src'].split('?')[0]
-        #         recipe['image_url'] = clean_url
-
-        image_meta = soup.find('meta', property='og:image')
-        if image_meta and 'content' in image_meta.attrs:
-            clean_url = image_meta['content'].split('?')[0]
-            recipe['image_url'] = clean_url
+        image = soup.find('div', class_='field--name-field-image')
+        if image:
+            img_tag = image.find('img')
+            if img_tag and 'src' in img_tag.attrs:
+                recipe['image_url'] = img_tag['src']
 
         filename = f"{recipe['title'].lower().replace(' ', '-')[:50]}.json"
         filename = filename.replace('|', ' ').replace('"', ' ').replace('&', ' and ')
@@ -140,13 +134,13 @@ class RecipeCrawler:
 
 def main():
     config = {
-        'base_url': 'https://www.rachaelrayshow.com',
+        'base_url': 'https://rachaelray.com/blogs/recipes?srsltid=AfmBOoq2bILEQoIK9KBcO_DqhLFBaXjG4Ak_V3YO9wppL-NjLlGa_HBg',
         'max_pages': 5,
         'delay_range': (1, 3)
     }
 
     crawler = RecipeCrawler(config)
-    crawler.crawl_listing_page('https://www.rachaelrayshow.com/recent/recipe')
+    crawler.crawl_listing_page('https://rachaelray.com/blogs/recipes/')
     crawler.save_results()
 
 if __name__ == "__main__":

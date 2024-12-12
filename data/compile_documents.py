@@ -36,8 +36,6 @@ embedding_dimension = (
 table_name = ""
 if len(sys.argv) < 2 or sys.argv[1] == "output":
     table_name = os.getenv("ASTRA_DB_TABLE_NAME")
-elif sys.argv[1] == "output_ecommerce_sites":
-    table_name = os.getenv("ASTRA_DB_TABLE_NAME_ECOMMERCE")
 elif sys.argv[1] == "ecommerce_sites":
     table_name = os.getenv("ASTRA_DB_TABLE_NAME_ECOMMERCE")
 elif sys.argv[1] == "recipe_sites":
@@ -79,8 +77,6 @@ def add_documents(folder_path):
 if __name__ == "__main__":
     if len(sys.argv) < 2 or sys.argv[1] == "output":
         add_documents("output")
-    elif sys.argv[1] == "output_ecommerce_sites":
-        add_documents("output_ecommerce_sites")
     elif sys.argv[1] == "ecommerce_sites":
         add_documents("ecommerce_sites")
     elif sys.argv[1] == "recipe_sites":

@@ -103,10 +103,18 @@ class EcommerceCrawler:
                         product[field] = price[0] if price else None
                     elif field == 'images':
                         # Extract all image URLs
-                        product[field] = [
-                            urljoin(self.base_url, img.get('src'))
-                            for img in elements if img.get('src')
-                        ]
+                        # product[field] = [
+                        #     urljoin(self.base_url, img.get('src'))
+                        #     for img in elements if img.get('src')
+                        # ]
+                        print("Inside image")
+                        product[field] = []
+                        for slide in product_soup.select('.product__slide'):
+                            img = slide.select_one('.product__photo img')
+                            if img and img.get('src'):
+                                img_url = urljoin(self.base_url, img['src'])
+                                clean_url = img_url.split('?')[0]
+                                product[field].append(clean_url)
                     else:
                         product[field] = (elements[0].text.strip()).split("\n")[0]
                 else:

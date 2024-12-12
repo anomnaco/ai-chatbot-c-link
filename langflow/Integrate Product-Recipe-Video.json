@@ -1,13 +1,9 @@
 {
-  "endpoint_name": null,
-  "id": "123955b0-5a90-4227-9197-f58748450f44",
-  "tags": null,
-  "folder_id": "2d447552-2a3a-402e-a002-774b62b1c802",
-  "gradient": null,
+  "id": "b8d211bf-259d-49a7-abe0-a31beee2ff04",
   "data": {
     "nodes": [
       {
-        "id": "ChatInput-mE8Jx",
+        "id": "ChatInput-ue8cj",
         "type": "genericNode",
         "position": {
           "x": 214.3107250437829,
@@ -132,7 +128,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "input_value",
-                "value": "Query: \nGet products and recipes with chicken\n\nFormat: Provide output in JSON format",
+                "value": "get recipes with checken",
                 "display_name": "Text",
                 "advanced": false,
                 "input_types": [
@@ -292,7 +288,7 @@
             "lf_version": "1.1.1"
           },
           "type": "ChatInput",
-          "id": "ChatInput-mE8Jx"
+          "id": "ChatInput-ue8cj"
         },
         "selected": false,
         "width": 320,
@@ -304,11 +300,11 @@
         "dragging": false
       },
       {
-        "id": "Agent-GjLDC",
+        "id": "Agent-t8tgG",
         "type": "genericNode",
         "position": {
-          "x": 555.759762001368,
-          "y": -629.3615331843049
+          "x": 709.6227372232572,
+          "y": -673.3223832477017
         },
         "data": {
           "node": {
@@ -446,7 +442,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "api_key",
-                "value": "OPENAI_KEY",
+                "value": "",
                 "display_name": "OpenAI API Key",
                 "advanced": false,
                 "input_types": [
@@ -522,7 +518,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "json_mode",
-                "value": false,
+                "value": true,
                 "display_name": "JSON Mode",
                 "advanced": true,
                 "dynamic": false,
@@ -602,7 +598,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "model_name",
-                "value": "gpt-4o-mini",
+                "value": "gpt-4o",
                 "display_name": "Model Name",
                 "advanced": false,
                 "dynamic": false,
@@ -793,7 +789,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "temperature",
-                "value": 0.3,
+                "value": 1,
                 "display_name": "Temperature",
                 "advanced": true,
                 "dynamic": false,
@@ -832,7 +828,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "verbose",
-                "value": true,
+                "value": false,
                 "display_name": "Verbose",
                 "advanced": true,
                 "dynamic": false,
@@ -903,19 +899,19 @@
             "lf_version": "1.1.1"
           },
           "type": "Agent",
-          "id": "Agent-GjLDC"
+          "id": "Agent-t8tgG"
         },
         "selected": false,
         "width": 320,
         "height": 647,
         "positionAbsolute": {
-          "x": 555.759762001368,
-          "y": -629.3615331843049
+          "x": 709.6227372232572,
+          "y": -673.3223832477017
         },
         "dragging": false
       },
       {
-        "id": "AstraDBToolComponent-6soEY",
+        "id": "AstraDBToolComponent-ZpdtT",
         "type": "genericNode",
         "position": {
           "x": -657.4525702276707,
@@ -968,7 +964,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "collection_name",
-                "value": "chatbot_recipe",
+                "value": "chatbot_recipe_image",
                 "display_name": "Collection Name",
                 "advanced": false,
                 "dynamic": false,
@@ -1001,7 +997,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "number_of_results",
-                "value": 2,
+                "value": 7,
                 "display_name": "Number of Results",
                 "advanced": true,
                 "dynamic": false,
@@ -1049,7 +1045,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "token",
-                "value": "BRANDAID_ASTRA_DB_APPLICATION_TOKEN",
+                "value": "",
                 "display_name": "Astra DB Application Token",
                 "advanced": false,
                 "input_types": [
@@ -1186,7 +1182,7 @@
             "lf_version": "1.1.1"
           },
           "type": "AstraDBToolComponent",
-          "id": "AstraDBToolComponent-6soEY"
+          "id": "AstraDBToolComponent-ZpdtT"
         },
         "selected": false,
         "width": 320,
@@ -1198,7 +1194,7 @@
         "dragging": false
       },
       {
-        "id": "AstraDBToolComponent-TAX3n",
+        "id": "AstraDBToolComponent-EwrMW",
         "type": "genericNode",
         "position": {
           "x": -291.3284931698773,
@@ -1251,7 +1247,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "collection_name",
-                "value": "chatbot_ecommerce",
+                "value": "chatbot_ecommerce_image_new",
                 "display_name": "Collection Name",
                 "advanced": false,
                 "dynamic": false,
@@ -1284,7 +1280,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "number_of_results",
-                "value": 2,
+                "value": 7,
                 "display_name": "Number of Results",
                 "advanced": true,
                 "dynamic": false,
@@ -1332,7 +1328,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "token",
-                "value": "BRANDAID_ASTRA_DB_APPLICATION_TOKEN",
+                "value": "",
                 "display_name": "Astra DB Application Token",
                 "advanced": false,
                 "input_types": [
@@ -1469,7 +1465,7 @@
             "lf_version": "1.1.1"
           },
           "type": "AstraDBToolComponent",
-          "id": "AstraDBToolComponent-TAX3n"
+          "id": "AstraDBToolComponent-EwrMW"
         },
         "selected": false,
         "width": 320,
@@ -1481,7 +1477,7 @@
         "dragging": false
       },
       {
-        "id": "AstraDBToolComponent-oekSk",
+        "id": "AstraDBToolComponent-J8vbv",
         "type": "genericNode",
         "position": {
           "x": 104.7158921190894,
@@ -1567,7 +1563,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "number_of_results",
-                "value": 2,
+                "value": 7,
                 "display_name": "Number of Results",
                 "advanced": true,
                 "dynamic": false,
@@ -1615,7 +1611,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "token",
-                "value": "BRANDAID_ASTRA_DB_APPLICATION_TOKEN",
+                "value": "",
                 "display_name": "Astra DB Application Token",
                 "advanced": false,
                 "input_types": [
@@ -1752,7 +1748,7 @@
             "lf_version": "1.1.1"
           },
           "type": "AstraDBToolComponent",
-          "id": "AstraDBToolComponent-oekSk"
+          "id": "AstraDBToolComponent-J8vbv"
         },
         "selected": false,
         "width": 320,
@@ -1764,7 +1760,7 @@
         }
       },
       {
-        "id": "TextOutput-a8on9",
+        "id": "TextOutput-WOSc0",
         "type": "genericNode",
         "position": {
           "x": 1167.0467138353767,
@@ -1852,7 +1848,7 @@
             "lf_version": "1.1.1"
           },
           "type": "TextOutput",
-          "id": "TextOutput-a8on9"
+          "id": "TextOutput-WOSc0"
         },
         "selected": false,
         "width": 320,
@@ -1866,14 +1862,14 @@
     ],
     "edges": [
       {
-        "source": "AstraDBToolComponent-6soEY",
-        "sourceHandle": "{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-6soEYœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}",
-        "target": "Agent-GjLDC",
-        "targetHandle": "{œfieldNameœ:œtoolsœ,œidœ:œAgent-GjLDCœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
+        "source": "AstraDBToolComponent-ZpdtT",
+        "sourceHandle": "{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-ZpdtTœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}",
+        "target": "Agent-t8tgG",
+        "targetHandle": "{œfieldNameœ:œtoolsœ,œidœ:œAgent-t8tgGœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
         "data": {
           "targetHandle": {
             "fieldName": "tools",
-            "id": "Agent-GjLDC",
+            "id": "Agent-t8tgG",
             "inputTypes": [
               "Tool",
               "BaseTool",
@@ -1883,26 +1879,27 @@
           },
           "sourceHandle": {
             "dataType": "AstraDBToolComponent",
-            "id": "AstraDBToolComponent-6soEY",
+            "id": "AstraDBToolComponent-ZpdtT",
             "name": "api_build_tool",
             "output_types": [
               "StructuredTool"
             ]
           }
         },
-        "id": "reactflow__edge-AstraDBToolComponent-6soEY{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-6soEYœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}-Agent-GjLDC{œfieldNameœ:œtoolsœ,œidœ:œAgent-GjLDCœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-AstraDBToolComponent-ZpdtT{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-ZpdtTœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}-Agent-t8tgG{œfieldNameœ:œtoolsœ,œidœ:œAgent-t8tgGœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
         "animated": false,
-        "className": ""
+        "className": "",
+        "selected": false
       },
       {
-        "source": "ChatInput-mE8Jx",
-        "sourceHandle": "{œdataTypeœ:œChatInputœ,œidœ:œChatInput-mE8Jxœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}",
-        "target": "Agent-GjLDC",
-        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œAgent-GjLDCœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "source": "ChatInput-ue8cj",
+        "sourceHandle": "{œdataTypeœ:œChatInputœ,œidœ:œChatInput-ue8cjœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "Agent-t8tgG",
+        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œAgent-t8tgGœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "data": {
           "targetHandle": {
             "fieldName": "input_value",
-            "id": "Agent-GjLDC",
+            "id": "Agent-t8tgG",
             "inputTypes": [
               "Message"
             ],
@@ -1910,26 +1907,27 @@
           },
           "sourceHandle": {
             "dataType": "ChatInput",
-            "id": "ChatInput-mE8Jx",
+            "id": "ChatInput-ue8cj",
             "name": "message",
             "output_types": [
               "Message"
             ]
           }
         },
-        "id": "reactflow__edge-ChatInput-mE8Jx{œdataTypeœ:œChatInputœ,œidœ:œChatInput-mE8Jxœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Agent-GjLDC{œfieldNameœ:œinput_valueœ,œidœ:œAgent-GjLDCœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-ue8cj{œdataTypeœ:œChatInputœ,œidœ:œChatInput-ue8cjœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Agent-t8tgG{œfieldNameœ:œinput_valueœ,œidœ:œAgent-t8tgGœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "animated": false,
-        "className": ""
+        "className": "",
+        "selected": false
       },
       {
-        "source": "AstraDBToolComponent-TAX3n",
-        "sourceHandle": "{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-TAX3nœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}",
-        "target": "Agent-GjLDC",
-        "targetHandle": "{œfieldNameœ:œtoolsœ,œidœ:œAgent-GjLDCœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
+        "source": "AstraDBToolComponent-EwrMW",
+        "sourceHandle": "{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-EwrMWœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}",
+        "target": "Agent-t8tgG",
+        "targetHandle": "{œfieldNameœ:œtoolsœ,œidœ:œAgent-t8tgGœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
         "data": {
           "targetHandle": {
             "fieldName": "tools",
-            "id": "Agent-GjLDC",
+            "id": "Agent-t8tgG",
             "inputTypes": [
               "Tool",
               "BaseTool",
@@ -1939,26 +1937,27 @@
           },
           "sourceHandle": {
             "dataType": "AstraDBToolComponent",
-            "id": "AstraDBToolComponent-TAX3n",
+            "id": "AstraDBToolComponent-EwrMW",
             "name": "api_build_tool",
             "output_types": [
               "StructuredTool"
             ]
           }
         },
-        "id": "reactflow__edge-AstraDBToolComponent-TAX3n{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-TAX3nœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}-Agent-GjLDC{œfieldNameœ:œtoolsœ,œidœ:œAgent-GjLDCœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-AstraDBToolComponent-EwrMW{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-EwrMWœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}-Agent-t8tgG{œfieldNameœ:œtoolsœ,œidœ:œAgent-t8tgGœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
         "animated": false,
-        "className": ""
+        "className": "",
+        "selected": false
       },
       {
-        "source": "AstraDBToolComponent-oekSk",
-        "sourceHandle": "{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-oekSkœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}",
-        "target": "Agent-GjLDC",
-        "targetHandle": "{œfieldNameœ:œtoolsœ,œidœ:œAgent-GjLDCœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
+        "source": "AstraDBToolComponent-J8vbv",
+        "sourceHandle": "{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-J8vbvœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}",
+        "target": "Agent-t8tgG",
+        "targetHandle": "{œfieldNameœ:œtoolsœ,œidœ:œAgent-t8tgGœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
         "data": {
           "targetHandle": {
             "fieldName": "tools",
-            "id": "Agent-GjLDC",
+            "id": "Agent-t8tgG",
             "inputTypes": [
               "Tool",
               "BaseTool",
@@ -1968,26 +1967,27 @@
           },
           "sourceHandle": {
             "dataType": "AstraDBToolComponent",
-            "id": "AstraDBToolComponent-oekSk",
+            "id": "AstraDBToolComponent-J8vbv",
             "name": "api_build_tool",
             "output_types": [
               "StructuredTool"
             ]
           }
         },
-        "id": "reactflow__edge-AstraDBToolComponent-oekSk{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-oekSkœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}-Agent-GjLDC{œfieldNameœ:œtoolsœ,œidœ:œAgent-GjLDCœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-AstraDBToolComponent-J8vbv{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-J8vbvœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}-Agent-t8tgG{œfieldNameœ:œtoolsœ,œidœ:œAgent-t8tgGœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
         "animated": false,
-        "className": ""
+        "className": "",
+        "selected": false
       },
       {
-        "source": "Agent-GjLDC",
-        "sourceHandle": "{œdataTypeœ:œAgentœ,œidœ:œAgent-GjLDCœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}",
-        "target": "TextOutput-a8on9",
-        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œTextOutput-a8on9œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "source": "Agent-t8tgG",
+        "sourceHandle": "{œdataTypeœ:œAgentœ,œidœ:œAgent-t8tgGœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "TextOutput-WOSc0",
+        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œTextOutput-WOSc0œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "data": {
           "targetHandle": {
             "fieldName": "input_value",
-            "id": "TextOutput-a8on9",
+            "id": "TextOutput-WOSc0",
             "inputTypes": [
               "Message"
             ],
@@ -1995,16 +1995,17 @@
           },
           "sourceHandle": {
             "dataType": "Agent",
-            "id": "Agent-GjLDC",
+            "id": "Agent-t8tgG",
             "name": "response",
             "output_types": [
               "Message"
             ]
           }
         },
-        "id": "reactflow__edge-Agent-GjLDC{œdataTypeœ:œAgentœ,œidœ:œAgent-GjLDCœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-TextOutput-a8on9{œfieldNameœ:œinput_valueœ,œidœ:œTextOutput-a8on9œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Agent-t8tgG{œdataTypeœ:œAgentœ,œidœ:œAgent-t8tgGœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-TextOutput-WOSc0{œfieldNameœ:œinput_valueœ,œidœ:œTextOutput-WOSc0œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "animated": false,
-        "className": ""
+        "className": "",
+        "selected": false
       }
     ],
     "viewport": {
@@ -2013,12 +2014,9 @@
       "zoom": 0.45574912662342587
     }
   },
-  "is_component": false,
-  "updated_at": "2024-12-06T14:13:56+00:00",
-  "icon": null,
-  "name": "Integrate Product-Recipe-Video",
-  "icon_bg_color": null,
-  "webhook": false,
   "description": "Language Chainlink Master.",
-  "user_id": "82f0ecd7-4695-4e90-a40b-47e5903e011f"
+  "name": "Integrate Product-Recipe-Video New",
+  "last_tested_version": "1.1.1",
+  "endpoint_name": null,
+  "is_component": false
 }
