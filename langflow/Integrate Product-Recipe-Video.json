@@ -1,9 +1,9 @@
 {
-  "id": "b8d211bf-259d-49a7-abe0-a31beee2ff04",
+  "id": "4edfc9e0-11ee-4814-a79e-902ba5b76df2",
   "data": {
     "nodes": [
       {
-        "id": "ChatInput-ue8cj",
+        "id": "ChatInput-qtlb8",
         "type": "genericNode",
         "position": {
           "x": 214.3107250437829,
@@ -128,7 +128,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "input_value",
-                "value": "get recipes with checken",
+                "value": "Get 3 nonstick products and 3 recipes with chicken",
                 "display_name": "Text",
                 "advanced": false,
                 "input_types": [
@@ -288,7 +288,7 @@
             "lf_version": "1.1.1"
           },
           "type": "ChatInput",
-          "id": "ChatInput-ue8cj"
+          "id": "ChatInput-qtlb8"
         },
         "selected": false,
         "width": 320,
@@ -300,11 +300,11 @@
         "dragging": false
       },
       {
-        "id": "Agent-t8tgG",
+        "id": "Agent-ePxZQ",
         "type": "genericNode",
         "position": {
-          "x": 709.6227372232572,
-          "y": -673.3223832477017
+          "x": 555.759762001368,
+          "y": -629.3615331843049
         },
         "data": {
           "node": {
@@ -556,7 +556,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "max_tokens",
-                "value": "",
+                "value": 0,
                 "display_name": "Max Tokens",
                 "advanced": true,
                 "dynamic": false,
@@ -598,7 +598,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "model_name",
-                "value": "gpt-4o",
+                "value": "gpt-4o-mini",
                 "display_name": "Model Name",
                 "advanced": false,
                 "dynamic": false,
@@ -899,19 +899,19 @@
             "lf_version": "1.1.1"
           },
           "type": "Agent",
-          "id": "Agent-t8tgG"
+          "id": "Agent-ePxZQ"
         },
         "selected": false,
         "width": 320,
         "height": 647,
         "positionAbsolute": {
-          "x": 709.6227372232572,
-          "y": -673.3223832477017
+          "x": 555.759762001368,
+          "y": -629.3615331843049
         },
         "dragging": false
       },
       {
-        "id": "AstraDBToolComponent-ZpdtT",
+        "id": "AstraDBToolComponent-97vDE",
         "type": "genericNode",
         "position": {
           "x": -657.4525702276707,
@@ -964,7 +964,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "collection_name",
-                "value": "chatbot_recipe_image",
+                "value": "chatbot_recipe_image_new",
                 "display_name": "Collection Name",
                 "advanced": false,
                 "dynamic": false,
@@ -997,7 +997,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "number_of_results",
-                "value": 7,
+                "value": 3,
                 "display_name": "Number of Results",
                 "advanced": true,
                 "dynamic": false,
@@ -1182,7 +1182,7 @@
             "lf_version": "1.1.1"
           },
           "type": "AstraDBToolComponent",
-          "id": "AstraDBToolComponent-ZpdtT"
+          "id": "AstraDBToolComponent-97vDE"
         },
         "selected": false,
         "width": 320,
@@ -1194,7 +1194,7 @@
         "dragging": false
       },
       {
-        "id": "AstraDBToolComponent-EwrMW",
+        "id": "AstraDBToolComponent-Q06Q9",
         "type": "genericNode",
         "position": {
           "x": -291.3284931698773,
@@ -1280,7 +1280,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "number_of_results",
-                "value": 7,
+                "value": 3,
                 "display_name": "Number of Results",
                 "advanced": true,
                 "dynamic": false,
@@ -1465,7 +1465,7 @@
             "lf_version": "1.1.1"
           },
           "type": "AstraDBToolComponent",
-          "id": "AstraDBToolComponent-EwrMW"
+          "id": "AstraDBToolComponent-Q06Q9"
         },
         "selected": false,
         "width": 320,
@@ -1477,7 +1477,7 @@
         "dragging": false
       },
       {
-        "id": "AstraDBToolComponent-J8vbv",
+        "id": "AstraDBToolComponent-Ukg0I",
         "type": "genericNode",
         "position": {
           "x": 104.7158921190894,
@@ -1489,13 +1489,13 @@
               "_type": "Component",
               "api_endpoint": {
                 "trace_as_metadata": true,
-                "load_from_db": false,
+                "load_from_db": true,
                 "list": false,
                 "required": true,
                 "placeholder": "",
                 "show": true,
                 "name": "api_endpoint",
-                "value": "https://412450da-b2f1-410d-8556-bb1239280520-us-east1.apps.astra.datastax.com",
+                "value": "BRANDAID_API_ENDPOINT",
                 "display_name": "API Endpoint",
                 "advanced": false,
                 "dynamic": false,
@@ -1563,7 +1563,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "number_of_results",
-                "value": 7,
+                "value": 3,
                 "display_name": "Number of Results",
                 "advanced": true,
                 "dynamic": false,
@@ -1580,7 +1580,7 @@
                 "placeholder": "",
                 "show": true,
                 "name": "projection_attributes",
-                "value": "*",
+                "value": "[\"doc_json\"]",
                 "display_name": "Projection Attributes",
                 "advanced": true,
                 "dynamic": false,
@@ -1748,7 +1748,7 @@
             "lf_version": "1.1.1"
           },
           "type": "AstraDBToolComponent",
-          "id": "AstraDBToolComponent-J8vbv"
+          "id": "AstraDBToolComponent-Ukg0I"
         },
         "selected": false,
         "width": 320,
@@ -1760,7 +1760,7 @@
         }
       },
       {
-        "id": "TextOutput-WOSc0",
+        "id": "TextOutput-oVlvg",
         "type": "genericNode",
         "position": {
           "x": 1167.0467138353767,
@@ -1848,7 +1848,7 @@
             "lf_version": "1.1.1"
           },
           "type": "TextOutput",
-          "id": "TextOutput-WOSc0"
+          "id": "TextOutput-oVlvg"
         },
         "selected": false,
         "width": 320,
@@ -1862,14 +1862,14 @@
     ],
     "edges": [
       {
-        "source": "AstraDBToolComponent-ZpdtT",
-        "sourceHandle": "{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-ZpdtTœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}",
-        "target": "Agent-t8tgG",
-        "targetHandle": "{œfieldNameœ:œtoolsœ,œidœ:œAgent-t8tgGœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
+        "source": "AstraDBToolComponent-97vDE",
+        "sourceHandle": "{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-97vDEœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}",
+        "target": "Agent-ePxZQ",
+        "targetHandle": "{œfieldNameœ:œtoolsœ,œidœ:œAgent-ePxZQœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
         "data": {
           "targetHandle": {
             "fieldName": "tools",
-            "id": "Agent-t8tgG",
+            "id": "Agent-ePxZQ",
             "inputTypes": [
               "Tool",
               "BaseTool",
@@ -1879,27 +1879,27 @@
           },
           "sourceHandle": {
             "dataType": "AstraDBToolComponent",
-            "id": "AstraDBToolComponent-ZpdtT",
+            "id": "AstraDBToolComponent-97vDE",
             "name": "api_build_tool",
             "output_types": [
               "StructuredTool"
             ]
           }
         },
-        "id": "reactflow__edge-AstraDBToolComponent-ZpdtT{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-ZpdtTœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}-Agent-t8tgG{œfieldNameœ:œtoolsœ,œidœ:œAgent-t8tgGœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-AstraDBToolComponent-97vDE{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-97vDEœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}-Agent-ePxZQ{œfieldNameœ:œtoolsœ,œidœ:œAgent-ePxZQœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
         "animated": false,
         "className": "",
         "selected": false
       },
       {
-        "source": "ChatInput-ue8cj",
-        "sourceHandle": "{œdataTypeœ:œChatInputœ,œidœ:œChatInput-ue8cjœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}",
-        "target": "Agent-t8tgG",
-        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œAgent-t8tgGœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "source": "ChatInput-qtlb8",
+        "sourceHandle": "{œdataTypeœ:œChatInputœ,œidœ:œChatInput-qtlb8œ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "Agent-ePxZQ",
+        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œAgent-ePxZQœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "data": {
           "targetHandle": {
             "fieldName": "input_value",
-            "id": "Agent-t8tgG",
+            "id": "Agent-ePxZQ",
             "inputTypes": [
               "Message"
             ],
@@ -1907,27 +1907,27 @@
           },
           "sourceHandle": {
             "dataType": "ChatInput",
-            "id": "ChatInput-ue8cj",
+            "id": "ChatInput-qtlb8",
             "name": "message",
             "output_types": [
               "Message"
             ]
           }
         },
-        "id": "reactflow__edge-ChatInput-ue8cj{œdataTypeœ:œChatInputœ,œidœ:œChatInput-ue8cjœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Agent-t8tgG{œfieldNameœ:œinput_valueœ,œidœ:œAgent-t8tgGœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-qtlb8{œdataTypeœ:œChatInputœ,œidœ:œChatInput-qtlb8œ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Agent-ePxZQ{œfieldNameœ:œinput_valueœ,œidœ:œAgent-ePxZQœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "animated": false,
         "className": "",
         "selected": false
       },
       {
-        "source": "AstraDBToolComponent-EwrMW",
-        "sourceHandle": "{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-EwrMWœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}",
-        "target": "Agent-t8tgG",
-        "targetHandle": "{œfieldNameœ:œtoolsœ,œidœ:œAgent-t8tgGœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
+        "source": "AstraDBToolComponent-Q06Q9",
+        "sourceHandle": "{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-Q06Q9œ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}",
+        "target": "Agent-ePxZQ",
+        "targetHandle": "{œfieldNameœ:œtoolsœ,œidœ:œAgent-ePxZQœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
         "data": {
           "targetHandle": {
             "fieldName": "tools",
-            "id": "Agent-t8tgG",
+            "id": "Agent-ePxZQ",
             "inputTypes": [
               "Tool",
               "BaseTool",
@@ -1937,27 +1937,27 @@
           },
           "sourceHandle": {
             "dataType": "AstraDBToolComponent",
-            "id": "AstraDBToolComponent-EwrMW",
+            "id": "AstraDBToolComponent-Q06Q9",
             "name": "api_build_tool",
             "output_types": [
               "StructuredTool"
             ]
           }
         },
-        "id": "reactflow__edge-AstraDBToolComponent-EwrMW{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-EwrMWœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}-Agent-t8tgG{œfieldNameœ:œtoolsœ,œidœ:œAgent-t8tgGœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-AstraDBToolComponent-Q06Q9{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-Q06Q9œ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}-Agent-ePxZQ{œfieldNameœ:œtoolsœ,œidœ:œAgent-ePxZQœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
         "animated": false,
         "className": "",
         "selected": false
       },
       {
-        "source": "AstraDBToolComponent-J8vbv",
-        "sourceHandle": "{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-J8vbvœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}",
-        "target": "Agent-t8tgG",
-        "targetHandle": "{œfieldNameœ:œtoolsœ,œidœ:œAgent-t8tgGœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
+        "source": "AstraDBToolComponent-Ukg0I",
+        "sourceHandle": "{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-Ukg0Iœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}",
+        "target": "Agent-ePxZQ",
+        "targetHandle": "{œfieldNameœ:œtoolsœ,œidœ:œAgent-ePxZQœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
         "data": {
           "targetHandle": {
             "fieldName": "tools",
-            "id": "Agent-t8tgG",
+            "id": "Agent-ePxZQ",
             "inputTypes": [
               "Tool",
               "BaseTool",
@@ -1967,27 +1967,27 @@
           },
           "sourceHandle": {
             "dataType": "AstraDBToolComponent",
-            "id": "AstraDBToolComponent-J8vbv",
+            "id": "AstraDBToolComponent-Ukg0I",
             "name": "api_build_tool",
             "output_types": [
               "StructuredTool"
             ]
           }
         },
-        "id": "reactflow__edge-AstraDBToolComponent-J8vbv{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-J8vbvœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}-Agent-t8tgG{œfieldNameœ:œtoolsœ,œidœ:œAgent-t8tgGœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-AstraDBToolComponent-Ukg0I{œdataTypeœ:œAstraDBToolComponentœ,œidœ:œAstraDBToolComponent-Ukg0Iœ,œnameœ:œapi_build_toolœ,œoutput_typesœ:[œStructuredToolœ]}-Agent-ePxZQ{œfieldNameœ:œtoolsœ,œidœ:œAgent-ePxZQœ,œinputTypesœ:[œToolœ,œBaseToolœ,œStructuredToolœ],œtypeœ:œotherœ}",
         "animated": false,
         "className": "",
         "selected": false
       },
       {
-        "source": "Agent-t8tgG",
-        "sourceHandle": "{œdataTypeœ:œAgentœ,œidœ:œAgent-t8tgGœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}",
-        "target": "TextOutput-WOSc0",
-        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œTextOutput-WOSc0œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "source": "Agent-ePxZQ",
+        "sourceHandle": "{œdataTypeœ:œAgentœ,œidœ:œAgent-ePxZQœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "TextOutput-oVlvg",
+        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œTextOutput-oVlvgœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "data": {
           "targetHandle": {
             "fieldName": "input_value",
-            "id": "TextOutput-WOSc0",
+            "id": "TextOutput-oVlvg",
             "inputTypes": [
               "Message"
             ],
@@ -1995,14 +1995,14 @@
           },
           "sourceHandle": {
             "dataType": "Agent",
-            "id": "Agent-t8tgG",
+            "id": "Agent-ePxZQ",
             "name": "response",
             "output_types": [
               "Message"
             ]
           }
         },
-        "id": "reactflow__edge-Agent-t8tgG{œdataTypeœ:œAgentœ,œidœ:œAgent-t8tgGœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-TextOutput-WOSc0{œfieldNameœ:œinput_valueœ,œidœ:œTextOutput-WOSc0œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Agent-ePxZQ{œdataTypeœ:œAgentœ,œidœ:œAgent-ePxZQœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-TextOutput-oVlvg{œfieldNameœ:œinput_valueœ,œidœ:œTextOutput-oVlvgœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "animated": false,
         "className": "",
         "selected": false
@@ -2015,7 +2015,7 @@
     }
   },
   "description": "Language Chainlink Master.",
-  "name": "Integrate Product-Recipe-Video New",
+  "name": "Integrate Product-Recipe-Video",
   "last_tested_version": "1.1.1",
   "endpoint_name": null,
   "is_component": false
