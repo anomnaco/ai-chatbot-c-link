@@ -46,13 +46,30 @@ class RecipeCrawler:
         image = article.find(class_='field--name-field-image-landscape')
         link = article.find('a', class_='card-wrapper-link')
 
+        video_player = article.find('div', class_='cvp-player')
+        video_info = {}
+        if video_player:
+            video_info = {
+                'video_title': video_player.get('data-title', ''),
+                'video_url': video_player.get('data-hls', ''),
+                'video_duration': video_player.get('data-duration', ''),
+                'video_keywords': video_player.get('data-keywords', ''),
+            }
+            try:
+                tracking_data = json.loads(video_player.get('data-tracking-data', '{}'))
+                video_info['video_author'] = tracking_data.get('authorName', '')
+                video_info['video_publish_date'] = tracking_data.get('assetPubDate', '')
+            except json.JSONDecodeError:
+                self.logger.error("Failed to parse video tracking data")
+
         return {
             'title': title.text.strip() if title else 'No title found',
             'description': description.text.strip() if description else 'No description found',
             'link': urljoin(self.base_url, link['href']) if link and 'href' in link.attrs else 'No link found',
             'image_url': image.find('img')['src'] if image and image.find('img') else 'No image found',
             'category': category.text.strip() if category else 'No category found',
-            'date_scraped': time.strftime("%Y-%m-%d %H:%M:%S")
+            'date_scraped': time.strftime("%Y-%m-%d %H:%M:%S"),
+            'video_info': video_info
         }
 
     def crawl_recipe_page(self, url: str):
@@ -71,33 +88,39 @@ class RecipeCrawler:
             'title': soup.find('h1').text.strip() if soup.find('h1') else '',
             'description': soup.find(class_='field--name-field-subhead').text.strip() if soup.find(class_='field--name-field-subhead') else '',
             'category': soup.find(class_='field--name-field-category').text.strip() if soup.find(class_='field--name-field-category') else '',
-            'image_url': ''
+            'image_url': '',
+            'video_info': {}
         }
-
-        # # Extract ingredients
-        # ingredients_section = soup.find('div', class_='recipe-ingredients')
-        # if ingredients_section:
-        #     ingredients = [item.get_text(strip=True) for item in ingredients_section.find_all('li')]
-        #     recipe['ingredients'] = [ing.strip() for ing in ingredients]
-
-        # # Extract instructions
-        # instructions_section = soup.find('div', class_='recipe-instructions')
-        # if instructions_section:
-        #     instructions = [item.get_text(strip=True) for item in instructions_section.find_all('p')]
-        #     recipe['instructions'] = [inst.strip() for inst in instructions]
-
-        # Extract image URL
-        # image = soup.find('div', class_='field--name-field-image')
-        # if image:
-        #     img_tag = image.find('img')
-        #     if img_tag and 'src' in img_tag.attrs:
-        #         clean_url = img_tag['src'].split('?')[0]
-        #         recipe['image_url'] = clean_url
 
         image_meta = soup.find('meta', property='og:image')
         if image_meta and 'content' in image_meta.attrs:
             clean_url = image_meta['content'].split('?')[0]
             recipe['image_url'] = clean_url
+
+        video_player = soup.find('div', class_='cvp-player')
+        if video_player:
+            recipe['video_info'] = {
+                'video_title': video_player.get('data-title', ''),
+                'video_url': video_player.get('data-hls', ''),
+                'video_duration': video_player.get('data-duration', ''),
+                'video_keywords': video_player.get('data-keywords', ''),
+            }
+            try:
+                tracking_data = json.loads(video_player.get('data-tracking-data', '{}'))
+                recipe['video_info']['video_author'] = tracking_data.get('authorName', '')
+                recipe['video_info']['video_publish_date'] = tracking_data.get('assetPubDate', '')
+            except json.JSONDecodeError:
+                self.logger.error("Failed to parse video tracking data")
+
+        ingredients_section = soup.find('div', class_='recipe-ingredients')
+        if ingredients_section:
+            ingredients = [item.get_text(strip=True) for item in ingredients_section.find_all('li')]
+            recipe['ingredients'] = [ing.strip() for ing in ingredients]
+
+        instructions_section = soup.find('div', class_='recipe-instructions')
+        if instructions_section:
+            instructions = [item.get_text(strip=True) for item in instructions_section.find_all('p')]
+            recipe['instructions'] = [inst.strip() for inst in instructions]
 
         filename = f"{recipe['title'].lower().replace(' ', '-')[:50]}.json"
         filename = filename.replace('|', ' ').replace('"', ' ').replace('&', ' and ')
@@ -151,4 +174,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
