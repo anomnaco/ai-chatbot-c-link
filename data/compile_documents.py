@@ -1,3 +1,4 @@
+
 # Add documents to the vectorstore, which is on the database, through an embeddings model
 import sys, os
 from dotenv import load_dotenv
@@ -80,7 +81,7 @@ if __name__ == "__main__":
     elif sys.argv[1] == "ecommerce_sites":
         add_documents("ecommerce_sites")
     elif sys.argv[1] == "recipe_sites":
-        add_documents("recipes")
+        add_documents("recipes_sites")
     elif sys.argv[1] == "video_output":
         add_documents("video_output")
     else:
