@@ -40,7 +40,7 @@ class LangflowClient:
                 self.api_url,
                 json=payload,
                 headers=self.headers,
-                timeout=300  # Add timeout
+                timeout=500  # Add timeout
             )
 
             # Log response status and headers

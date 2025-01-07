@@ -38,7 +38,8 @@ async def main(message: cl.Message):
         temp_msg = cl.Message(content="Searching...")
         await temp_msg.send()
 
-        response = langflow_client.query(message.content + ". Group them based on results. Provide output in JSON Format")
+        # response = langflow_client.query(message.content + ". Group them based on results. Provide output in JSON Format")
+        response = langflow_client.query(message.content + ". Group them. Provide output in JSON Format")
 
         if not response or 'outputs' not in response or not response['outputs']:
             await cl.Message("No results found. Please try again.").send()
@@ -54,18 +55,24 @@ async def main(message: cl.Message):
                 data = json.loads(json_string)
 
                 # Handle Recipes and Products
-                recipes = data.get('Recipes', []) or data.get('recipes', [])
-                products = data.get('Products', []) or data.get('products', [])
+                recipes = data.get('Recipes', []) or data.get('recipes', []) or data.get('Recipe', []) or data.get('recipe', [])
+                products = data.get('Products', []) or data.get('products', []) or data.get('Product', []) or data.get('product', [])
 
                 if recipes:
                     await cl.Message(content="### Recipes").send()
-                    for recipe in recipes:
-                        await display_recipe(recipe)
+                    if isinstance(recipes, dict):
+                        await display_recipe(recipes)
+                    else:
+                        for recipe in recipes:
+                            await display_recipe(recipe)
 
                 if products:
                     await cl.Message(content="### Products").send()
-                    for product in products:
-                        await display_product(product)
+                    if isinstance(products, dict):
+                        await display_recipe(products)
+                    else:
+                        for product in products:
+                            await display_product(product)
 
                 if not recipes and not products:
                     await cl.Message(
@@ -86,7 +93,10 @@ async def main(message: cl.Message):
 async def display_recipe(recipe):
     elements = []
     if 'image_url' in recipe:
-        elements.append(cl.Image(name=f"recipe_{recipe['title']}_image", url=recipe['image_url']))
+        try:
+            elements.append(cl.Image(name=f"recipe_{recipe['title']}_image", url=recipe['image_url']))
+        except Exception as e:
+            pass
 
     recipe_description = (
         f"**{recipe['title']}**\n"
@@ -117,7 +127,6 @@ async def display_recipe(recipe):
             )
 
             if thumbnail_url:
-                print("Inside thumbnail")
                 elements.append(cl.Video(
                     name=f"{recipe['title']}_video",
                     url=video_info['video_url'],
@@ -147,13 +156,15 @@ async def display_recipe(recipe):
         )
         await cl.Message(content=f"**Instructions:**\n{instructions_list}").send()
 
-
 async def display_product(product):
     elements = []
-    if 'images' in product and product['images']:
-        elements.append(cl.Image(name=f"product_{product['title']}_image", url=product['images'][0]))
-    elif 'image_url' in product:
-        elements.append(cl.Image(name=f"product_{product['title']}_image", url=product['image_url']))
+    try:
+        if 'images' in product and product['images']:
+            elements.append(cl.Image(name=f"product_{product['title']}_image", url=product['images'][0]))
+        elif 'image_url' in product:
+            elements.append(cl.Image(name=f"product_{product['title']}_image", url=product['image_url']))
+    except Exception as e:
+        pass
 
     product_description = (
         f"**{product['title']}**\n"
