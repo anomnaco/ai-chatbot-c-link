@@ -234,7 +234,7 @@ Langflow_ID, flow_id, and Base_api_Url. Use previously obtained Application_toke
 
 9. From command line, use below git commands to diploy application.
 ```
-git clone repository https://github.com/Anant/ai-chatbot-starter 
+git clone https://github.com/Anant/ai-chatbot-starter 
 cd ai-chatbot-starter
 git switch feature/brandaid
 cd langflow-chat-ui-chainlit
