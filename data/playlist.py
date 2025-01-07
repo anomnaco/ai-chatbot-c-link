@@ -20,6 +20,8 @@ def add_video_ids(video_ids):
     try:
         video_id_content = read_yaml(video_yaml_file)
     except Exception as e:
+        with open(video_yaml_file, 'w') as file:
+            file.write("youtube_ids:\n")
         video_id_content = None
     
     # Append to existing list if it exists, else create new one
@@ -29,7 +31,7 @@ def add_video_ids(video_ids):
         video_id_content['youtube_ids'].extend(video_ids)
     
     # Save back to the YAML file
-    with open(video_yaml_file, 'w') as file:
+    with open(video_yaml_file, 'a') as file:
         yaml.dump(video_id_content, file, default_flow_style=False)
 
 def get_video_ids_google(api_key, playlist_id):
@@ -79,12 +81,12 @@ def process_playlist():
     playlist_content = read_yaml(playlist_yaml_file)
     playlist_ids = playlist_content.get('playlist_ids', [])
     playlist_urls = playlist_content.get('playlist_urls', [])
-    
     if playlist_ids:
         for playlist_id in playlist_ids:
             video_ids = get_video_ids_google(youtube_api_key, playlist_id)
             add_video_ids(video_ids)
 
+    print("Processing urls")
     if playlist_urls:
         for playlist_url in playlist_urls:
             video_ids = get_video_ids_ytdlp(playlist_url)

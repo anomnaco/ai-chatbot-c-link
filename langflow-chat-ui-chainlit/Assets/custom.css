@@ -1,0 +1,50 @@
+/* Custom styles for Chainlit UI */
+.message-content {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.product-card, .recipe-card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.product-card h3, .recipe-card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.price {
+    font-weight: bold;
+    color: #4CAF50;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.view-link {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.view-link:hover {
+    background-color: #45a049;
+}
+
+.image-container {
+    max-width: 300px;
+    margin: 10px 0;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}

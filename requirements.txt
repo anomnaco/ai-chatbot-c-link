@@ -37,3 +37,4 @@ unstructured
 selenium
 chromedriver-autoinstaller
 lxml_html_clean
+youtube_transcript_api
