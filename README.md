@@ -243,5 +243,7 @@ Rename .env_example to .env
 Update all variables using the information obtained above/earlier
 
 10. Use below docker-compose command to build and host application locally.
+```
 docker-compose build
 docker-compose up -d
+```
