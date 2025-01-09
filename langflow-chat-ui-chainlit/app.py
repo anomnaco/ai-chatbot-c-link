@@ -139,9 +139,13 @@ async def display_recipe(recipe):
     elements = []
     if 'image_url' in recipe:
         try:
-            image_url = recipe['image_url']
-            elements.append(cl.Image(name=f"recipe_{recipe['title']}_image", url=image_url))
-            logger.info(f"Recipe included image_url {image_url}")
+            if isinstance(recipe['image_url'], str):
+                image = recipe['image_url']
+            else:
+                image = recipe['image_url'][0]
+
+            elements.append(cl.Image(name=f"recipe_{recipe['title']}_image", url=image))
+            logger.info(f"Recipe included image_url {image}")
         except Exception as e:
             logger.info(f"Recipe no image_url")
     recipe_url = recipe['url']
