@@ -187,15 +187,24 @@ async def display_product(product):
     elements = []
     try:
         if 'images' in product and product['images']:
-            image = product['images'][0]
+            if isinstance(product['images'], str):
+                image = product['images']
+            else:
+                image = product['images'][0]
             elements.append(cl.Image(name=f"product_{product['title']}_image", url=image))
             logger.info(f"Product included images {image}")
         elif 'image' in product and product['image']:
-            image = product['image'][0]
+            if isinstance(product['image'], str):
+                image = product['image']
+            else:
+                image = product['image'][0]
             elements.append(cl.Image(name=f"product_{product['title']}_image", url=image))
             logger.info(f"Product included image {image}")
         elif 'image_url' in product:
-            image = product['image_url']
+            if isinstance(product['image_url'], str):
+                image = product['image_url']
+            else:
+                image = product['image_url'][0]
             elements.append(cl.Image(name=f"product_{product['title']}_image", url=image))
             logger.info(f"Product included image url {image}")
     except Exception as e:
